@@ -1,8 +1,18 @@
-<h1>Home Page</h1>
-  <!--
-  <div class="collection-album-container column fourth" ng-repeat="album in collection.albums track by $index">
+<h1>Bloc Chat</h1>
+<!--
+<div class="collection-album-container column fourth" ng-repeat="album in collection.albums track by $index">
 -->
-<p>start room list here</p>
-<div class='roomList' ng-repeat="room in Room.all"></div>
-<p>end room list here</p>
-{{ room.Deb }}
+
+<!-- Display each room in the database by referencing
+the controller-as name 'home' which has the service called Room as a dependency. This service exposes properties and methods as needed by views.
+
+Ex: variable 'oneRoom' is any name I choose that holds one instance of the list being traversed. The data held in variable 'oneRoom' is provided by the service Room (see the dependencies injected into the controller HomeCtrl).
+
+`home.listOfRooms` uses the controller-as name 'home' with the properties or methods exposed by the dependent service Room through $scope.
+
+Using {{ oneRoom.$value }} because that's the property exposed from Firebase. To see this do console.log() in the controller.
+ -->
+<div class='roomList' ng-repeat="oneRoom in home.listOfRooms">{{ oneRoom.$value }}</div>
+
+<!-- <p>something here</p>
+<div ng-repeat="myRoom in home.listOfRooms">{{ myRoom.$value }}</div> -->
