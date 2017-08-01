@@ -1,11 +1,13 @@
 (function() {
   function HomeCtrl(Room) {
-    console.log('in HomeCtrl() controller');
+    console.log('in controller HomeCtrl() as "home"');
 
     console.log('Firebase Room obj:', Room.all);
 
     // Now visible in view due to $scope ('this.').
     this.listOfRooms = Room.all;
+
+    this.oneRoom = Room.add( {room123: 'debS'} );
 
     // Reference variable outside of this controller with its controller-as name.X
   }
