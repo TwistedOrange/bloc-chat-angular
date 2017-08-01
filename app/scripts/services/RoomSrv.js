@@ -2,7 +2,10 @@
   function Room($firebaseArray) {
     var Room_API = {};
 
-    console.log('in Room Service');
+    // empty room object
+    Room_API.roomObj = {};
+
+    console.log('in service Room');
 
     // Firebase database object is 'rooms'
     var ref = firebase.database().ref().child('rooms');
@@ -10,8 +13,32 @@
 
     var rooms = $firebaseArray(ref);
 
-    // Expose variable to controllers who use this service (example: Room.all since 'Room' is the name of the service (see IIFE function() above))
+    // Expose variable to controllers who use this service (Ex: Room.all since 'Room' is the name of the service (see IIFE function() above))
     Room_API.all = rooms;
+
+    // Creates a new record in the database and adds the record to our local synchronized array.
+    //
+    // This method returns a promise which is resolved after data has been saved to the server. The promise resolves to the Firebase reference for the newly added record, providing easy access to its key.
+    //
+    // var list = $firebaseArray(ref);
+    // list.$add({ foo: "bar" }).then(function(ref) {
+    //   var id = ref.key;
+    //   console.log("added record with id " + id);
+    //   list.$indexFor(id); // returns location in the array
+    // });
+
+    Room_API.add = function(newRoom) {
+      console.log('in service: Room add(), add room ', newRoom);
+
+      var dbReference = $firebaseArray(ref);
+      dbReference.$add( newRoom ).then( function(ref) {
+        var id = ref.key;
+        // console.log('added record id ' + id + ", newRoom = " + newRoom);
+
+        // return location in array of added room
+        dbReference.$indexFor(id);
+      });
+    };
 
     return Room_API;
   }
