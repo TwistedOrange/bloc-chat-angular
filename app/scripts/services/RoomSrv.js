@@ -27,16 +27,15 @@
     //   list.$indexFor(id); // returns location in the array
     // });
 
-    Room_API.add = function(newRoom) {
-      console.log('in service: Room add(), add room ', newRoom);
+    Room_API.add = function(roomName) {
+      console.log('in service: Room add(), add room ', roomName);
 
-      var dbReference = $firebaseArray(ref);
-      dbReference.$add( newRoom ).then( function(ref) {
+      rooms.$add( roomName ).then(function(ref) {
         var id = ref.key;
-        // console.log('added record id ' + id + ", newRoom = " + newRoom);
+        console.log('added record id ' + id + ", newRoom = " + roomName);
 
         // return location in array of added room
-        dbReference.$indexFor(id);
+        rooms.$indexFor(id);
       });
     };
 
