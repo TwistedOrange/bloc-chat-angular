@@ -5,9 +5,11 @@
     console.log('Firebase Room obj:', Room.all);
 
     // Now visible in view due to $scope ('this.').
-    this.listOfRooms = Room.all;
+    this.listRooms = Room.all;
 
-    this.oneRoom = Room.add( {room123: 'debS'} );
+    this.addRoom = function(roomName) {
+      console.log('home controller, add room', roomName);
+    };
 
     // Reference variable outside of this controller with its controller-as name.X
   }
