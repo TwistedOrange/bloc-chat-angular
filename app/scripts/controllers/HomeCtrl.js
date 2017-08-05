@@ -1,8 +1,6 @@
 (function() {
   function HomeCtrl(Room) {
-    console.log('in HomeCtrl() controller');
-
-    console.log('Firebase Room obj:', Room.all);
+    console.log('in HomeCtrl()');
 
     // Now visible in view due to $scope ('this.').
     this.listOfRooms = Room.all;
