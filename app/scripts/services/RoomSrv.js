@@ -30,13 +30,15 @@
     Room_API.add = function(roomObj) {
       console.log('in service: Room add(), add room ', roomObj);
 
-      rooms.$add( roomObj ).then(function(ref) {
+      // Firebase database named 'rooms', use $add to create new entry
+      rooms.$add( roomObj );
+      //.then(function(ref) {
         // var id = ref.key;
         // console.log('added record id ' + id + ", newRoom = " + roomObj;
-
+        //
         // return location in array of added room
         // rooms.$indexFor(id);
-      });
+      //});
     };
 
     return Room_API;
