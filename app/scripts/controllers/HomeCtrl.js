@@ -7,8 +7,9 @@
     // Now visible in view due to $scope ('this.').
     this.listRooms = Room.all;
 
-    this.addRoom = function(roomName) {
-      console.log('home controller, add room', roomName);
+    this.addRoom = function(roomObj) {
+      console.log('home controller, add room', roomObj);
+      Room.add(roomObj);
     };
 
     // Reference variable outside of this controller with its controller-as name.X

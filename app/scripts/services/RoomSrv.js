@@ -27,15 +27,15 @@
     //   list.$indexFor(id); // returns location in the array
     // });
 
-    Room_API.add = function(roomName) {
-      console.log('in service: Room add(), add room ', roomName);
+    Room_API.add = function(roomObj) {
+      console.log('in service: Room add(), add room ', roomObj);
 
-      rooms.$add( roomName ).then(function(ref) {
-        var id = ref.key;
-        console.log('added record id ' + id + ", newRoom = " + roomName);
+      rooms.$add( roomObj ).then(function(ref) {
+        // var id = ref.key;
+        // console.log('added record id ' + id + ", newRoom = " + roomObj;
 
         // return location in array of added room
-        rooms.$indexFor(id);
+        // rooms.$indexFor(id);
       });
     };
 

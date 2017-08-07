@@ -14,7 +14,7 @@ Using {{ oneRoom.$value }} because that's the property exposed from Firebase. To
  -->
 <div class='roomList' ng-repeat="oneRoom in home.listOfRooms">{{ oneRoom.name}}</div>
 
-<!-- <p>After added room, new list</p>
-{{ home.addRoom({room: 'bloc'}) }} -->
+<p>After added room, new list</p>
+{{ home.addRoom({name: 'bloc'}) }}
 
-<!-- <div class='roomList' ng-repeat="myRoom in home.listOfRooms">{{ myRoom.$value }}</div> -->
+<div class='roomList' ng-repeat="myRoom in home.listOfRooms">{{ myRoom.$value }}</div>
