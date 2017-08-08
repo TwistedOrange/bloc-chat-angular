@@ -9,16 +9,10 @@ the controller-as name 'home' which has the service called Room as a dependency.
 Ex: variable 'oneRoom' is any name I choose that holds one instance of the list being traversed. The data held in variable 'oneRoom' is provided by the service Room (see the dependencies injected into the controller HomeCtrl).
 
 `home.listRooms` uses the controller-as name 'home' with the properties or methods exposed by the dependent service Room through $scope.
-
-Using {{ oneRoom.$value }} because that's the property exposed from Firebase. To see this do console.log() in the controller.
  -->
+
 <div class='roomList' ng-repeat="oneRoom in home.listOfRooms">
-  this is one room:
   {{ oneRoom.name }}
 </div>
 
-<p>After added room, new list</p>
-<!-- ERROR. results in many rooms added instead of just one
-{{ home.addRoom({name: 'bloc'}) }} -->
-
-<div class='roomList' ng-repeat="myRoom in home.listOfRooms">{{ myRoom.$value }}</div>
+<!-- <button type="button" ng-click='modal.open()'></button> -->
