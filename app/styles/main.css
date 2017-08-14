@@ -3,5 +3,11 @@
 }
 
 .roomForm {
-  background-color: : orange;
+  background-color: orange;
+  font: arial;
+  font-size: 18px;
+}
+
+.formBtn {
+  color: red;
 }

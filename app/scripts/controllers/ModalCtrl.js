@@ -4,7 +4,7 @@
     // https://angular-ui.github.io/bootstrap/versioned-docs/2.5.0/#!#modal
 
     this.open = function() {
-      console.log('in model open');
+      console.log('in Modal open');
     };
 
     this.close = function() {
@@ -16,7 +16,7 @@
     };
 
     this.submit = function() {
-      console.log('model submit');
+      console.log('Modal submit');
     };
   }
 
