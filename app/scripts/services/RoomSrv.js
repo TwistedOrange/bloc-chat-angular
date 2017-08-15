@@ -14,29 +14,13 @@
     Room_API.all = rooms;
 
     // Creates a new record in the database and adds the record to our local synchronized array.
-    //
-    // This method returns a promise which is resolved after data has been saved to the server. The promise resolves to the Firebase reference for the newly added record, providing easy access to its key.
-    //
-    // var list = $firebaseArray(ref);
-    // list.$add({ foo: "bar" }).then(function(ref) {
-    //   var id = ref.key;
-    //   console.log("added record with id " + id);
-    //   list.$indexFor(id); // returns location in the array
-    // });
 
-    Room_API.add = function(roomObj) {
-      console.log('in service: Room add(), add room ', roomObj);
-
-      // Firebase database named 'rooms', use $add to create new entry
-      rooms.$add( roomObj );
-      //.then(function(ref) {
-        // var id = ref.key;
-        // console.log('added record id ' + id + ", newRoom = " + roomObj;
-        //
-        // return location in array of added room
-        // rooms.$indexFor(id);
-      //});
-    };
+    // Room_API.add = function(roomObj) {
+    //   console.log('in service: Room add(), add room ', roomObj);
+    //
+    //   // Firebase database named 'rooms', use $add to create new entry
+    //   rooms.$add( roomObj );
+    // };
 
     return Room_API;
   }

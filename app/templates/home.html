@@ -8,11 +8,19 @@ the controller-as name 'home' which has the service called Room as a dependency.
 
 Ex: variable 'oneRoom' is any name I choose that holds one instance of the list being traversed. The data held in variable 'oneRoom' is provided by the service Room (see the dependencies injected into the controller HomeCtrl).
 
-`home.listRooms` uses the controller-as name 'home' with the properties or methods exposed by the dependent service Room through $scope.
+`home.listOfRooms` uses the controller-as name 'home' with the properties or methods exposed by the dependent service Room through $scope.
  -->
 
-<div class='roomList' ng-repeat="oneRoom in home.listOfRooms">
-  {{ oneRoom.name }}
+<div class="container">
+  <div class="row justify-content-start">
+    <div class="col-4">
+      <div class='roomList' ng-repeat="oneRoom in home.listOfRooms">
+        {{ oneRoom.name }}
+      </div>
+    </div>
+    <div class="col-4">
+      <br />
+      <button type="button" ng-click='home.openForm()'>Add New Room</button>
+    </div>
+  </div>
 </div>
-
-<!-- <button type="button" ng-click='modal.open()'></button> -->

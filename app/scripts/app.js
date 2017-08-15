@@ -12,11 +12,6 @@
         controller: 'HomeCtrl as home',
         templateUrl: '/templates/home.html'
       });
-      // .state('form', {
-      //   url: '/form',
-      //   controller: 'ModalCtrl as modal',
-      //   templateUrl: '/templates/form.html'
-      // });
  }
 
   angular
