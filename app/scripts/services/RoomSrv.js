@@ -15,12 +15,18 @@
 
     // Creates a new record in the database and adds the record to our local synchronized array.
 
-    // Room_API.add = function(roomObj) {
+    // Room_API.addRoom = function(roomObj) {
     //   console.log('in service: Room add(), add room ', roomObj);
     //
     //   // Firebase database named 'rooms', use $add to create new entry
     //   rooms.$add( roomObj );
     // };
+
+    // replaced with HomeCtrl version
+    Room_API.closeModal = function() {
+      console.log('in service Room, close this form.');
+      home.closeModal(ref);
+    };
 
     return Room_API;
   }
