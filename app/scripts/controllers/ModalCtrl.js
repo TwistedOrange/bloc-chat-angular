@@ -23,15 +23,11 @@
       $uibModalInstance.close();
     };
 
-    // this.close = function() {
-    //   console.log('Modal - close form');
-    //   $uibModalInstance.dismiss();
-    // };
-
+    // Comments on using dismiss() v. close()
+    // After looking into dismiss vs close I think it has to do with Javascript promises. I won't go into it here but to use dismiss we'd need to add some additional code to the open method to handle it. close seems to work fine so I'd suggest using that on line 34 of ModalCtrl to get rid of the error when the user click to close the modal.
     this.cancel = function() {
       console.log('Modal - cancel form');
-      //Room.closeModal();
-      $uibModalInstance.dismiss();
+      $uibModalInstance.close();
     };
   }
 
