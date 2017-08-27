@@ -19,17 +19,22 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
 <div class="container">
   <div class="row justify-content-start">
     <div class="col-4">
-      <div class='roomList'>
-        <ul ng-repeat="oneRoom in home.listOfRooms">
-          <li ng-click='room.whatRoom()'>{{ oneRoom.name }}</li>
-        </ul>
+      <!-- ng-cloak= set display='none', prevent flicker -->
+      <div class='roomList' ng-cloak>
+        <div ng-repeat="oneRoom in home.listOfRooms">
+          <div ng-click='home.showRoomMessages()'
+          ng-model='selectedRoom'
+          ng-mouseover=''>
+            {{ oneRoom.name }}</div>
+        </div>
       </div>
 
+      <!-- TBD. show this part after room clicked -->
       <div class='msglist'>
-        <ul>
-          <li>one</li>
-          <li>two</li>
-          <li>three</li>
+        <ul>Messages for Room {{ home.chosenRoom }}
+          <li>msg-1</li>
+          <li>msg-2</li>
+          <li>msg-3</li>
         </ul>
       </div>
     </div>

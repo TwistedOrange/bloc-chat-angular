@@ -22,15 +22,16 @@
       roomsDB.$add( roomObj );
     };
 
+    // for given room name, display its messages
+    Room_API.listMessages = function(chosenRoom) {
+      console.log('inside Room.listMessages, room = ', chosenRoom);
+    };
+
+
     // replaced with HomeCtrl version
     Room_API.closeModal = function() {
       console.log('in service Room, close this form.');
       home.closeModal(ref);
-    };
-
-    Room_API.whatRoom = function() {
-        console.log('room clicked');
-        //return $scope;
     };
 
     return Room_API;

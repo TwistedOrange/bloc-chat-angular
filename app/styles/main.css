@@ -5,6 +5,9 @@ header {
 
 .roomList {
   background-color: lightyellow;
+  display: inline;
+  padding: 15px;
+  float: left;
 }
 
 .roomForm {
@@ -13,7 +16,12 @@ header {
   font-size: 18px;
 }
 .msglist {
+  margin-left: 75px;
   background-color: lightblue;
+}
+
+li {
+  /* turn off bullets */
 }
 
 .btnRoom {

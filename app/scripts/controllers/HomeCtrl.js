@@ -1,11 +1,23 @@
 (function() {
-  function HomeCtrl(Room, $uibModal) {
+  function HomeCtrl(Room, $uibModal, $scope) {
     console.log('in controller HomeCtrl() as "home"');
 
     console.log('Firebase Room obj:', Room.all);
 
     // Now visible in view due to $scope ('this.').
     this.listOfRooms = Room.all;
+
+    this.chosenRoom = '"test"';      // holds name of room user clicked
+
+    // one of the rooms was clicked, name in $scope
+    this.showRoomMessages = function() {
+      this.chosenRoom = $scope.selectedRoom;
+
+      console.log('room clicked =', $scope.selectedRoom);
+
+      // call func in Room service to fetch messages
+      Room.listMessages($scope.selectedRoom);
+    };
 
     this.openForm = function() {
       // https://angular-ui.github.io/bootstrap/versioned-docs/2.5.0/#!#modal
@@ -26,15 +38,11 @@
         controller: 'ModalCtrl as modal'
       });
 
-      // one of the rooms was clicked
-      this.selectRoom = function() {
-        console.log('room was clicked, name in $scope');
-      };
     };
   }
 
   angular
     .module('blocChat')
     // inject dependency of Room service so this controller can make its properties and methods visible via $scope to views
-    .controller('HomeCtrl', ['Room', '$uibModal', HomeCtrl]);
+    .controller('HomeCtrl', ['Room', '$uibModal','$scope', HomeCtrl]);
 })();
