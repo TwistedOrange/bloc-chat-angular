@@ -1,4 +1,9 @@
-<h1>Bloc Chat</h1>
+<header>Bloc Chat</header>
+<div class="col-4">
+  <br />
+  <button type="button" ng-click='home.openForm()'>Add New Room</button>
+  <p>{{ room.$value }}</p>
+</div>
 <!--
 <div class="collection-album-container column fourth" ng-repeat="album in collection.albums track by $index">
 -->
@@ -14,14 +19,24 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
 <div class="container">
   <div class="row justify-content-start">
     <div class="col-4">
-      <div class='roomList' ng-repeat="oneRoom in home.listOfRooms">
-        {{ oneRoom.name }}
+      <div class='roomList'>
+        <ul ng-repeat="oneRoom in home.listOfRooms">
+          <li ng-click='room.whatRoom()'>{{ oneRoom.name }}</li>
+        </ul>
+      </div>
+
+      <div class='msglist'>
+        <ul>
+          <li>one</li>
+          <li>two</li>
+          <li>three</li>
+        </ul>
       </div>
     </div>
-    <div class="col-4">
+    <!-- <div class="col-4">
       <br />
       <button type="button" ng-click='home.openForm()'>Add New Room</button>
       <p>{{ room.$value }}</p>
-    </div>
+    </div> -->
   </div>
 </div>

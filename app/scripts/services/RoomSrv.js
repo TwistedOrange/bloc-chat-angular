@@ -8,24 +8,29 @@
     var ref = firebase.database().ref().child('rooms');
     // Use Firebase's child() method to  query an existing set of data or reference one you intend to populate with data.
 
-    var rooms = $firebaseArray(ref);
+    var roomsDB = $firebaseArray(ref);
 
     // Expose variable to controllers who use this service (Ex: Room.all since 'Room' is the name of the service (see IIFE function() above))
-    Room_API.all = rooms;
+    Room_API.all = roomsDB;
 
     // Creates a new record in the database and adds the record to our local synchronized array.
 
     Room_API.addRoom = function(roomObj) {
-      console.log('in service: Room add(), add room ', roomObj);
+      console.log('in service: Room $add(), add room ', roomObj);
 
       // Firebase database named 'rooms', use $add to create new entry
-      rooms.$add( roomObj );
+      roomsDB.$add( roomObj );
     };
 
     // replaced with HomeCtrl version
     Room_API.closeModal = function() {
       console.log('in service Room, close this form.');
       home.closeModal(ref);
+    };
+
+    Room_API.whatRoom = function() {
+        console.log('room clicked');
+        //return $scope;
     };
 
     return Room_API;

@@ -1,3 +1,8 @@
+header {
+  font-size: 14px;
+  margin: 18px;
+}
+
 .roomList {
   background-color: lightyellow;
 }
@@ -7,7 +12,10 @@
   font: arial;
   font-size: 18px;
 }
+.msglist {
+  background-color: lightblue;
+}
 
-.formBtn {
-  color: red;
+.btnRoom {
+  border-style: dashed;
 }

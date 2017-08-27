@@ -25,6 +25,11 @@
         templateUrl: '/templates/frmAddRoom.html',
         controller: 'ModalCtrl as modal'
       });
+
+      // one of the rooms was clicked
+      this.selectRoom = function() {
+        console.log('room was clicked, name in $scope');
+      };
     };
   }
 
