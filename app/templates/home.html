@@ -30,8 +30,8 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
       </div>
 
       <!-- TBD. show this part after room clicked -->
-      <div class='msglist'>
-        <ul>Messages for Room {{ home.chosenRoom }}
+      <div class='msglist' ng-hide='displayMsg'>
+        <ul>Messages for Room: {{ home.chosenRoom }}
           <li>msg-1</li>
           <li>msg-2</li>
           <li>msg-3</li>

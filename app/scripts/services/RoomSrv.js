@@ -2,13 +2,25 @@
   function Room($firebaseArray) {
     var Room_API = {};
 
+    // Room_API.msgObj = {
+    //   username: 'username-here',
+    //   content: 'content of message here',
+    //   sentAt: 'time message sent',
+    //   roomID: 'room UID here e.g., -KsM68BMQiqxuLAfbHH3'
+    // };
+
     console.log('in service Room');
 
     // Firebase database object is 'rooms'
-    var ref = firebase.database().ref().child('rooms');
+    var roomsRef = firebase.database().ref().child('rooms');
     // Use Firebase's child() method to  query an existing set of data or reference one you intend to populate with data.
 
-    var roomsDB = $firebaseArray(ref);
+    var roomsDB = $firebaseArray(roomsRef);
+
+    // Firebase database object that holds messages sent to rooms
+    var msgRef = firebase.database().ref().child('messages');
+
+
 
     // Expose variable to controllers who use this service (Ex: Room.all since 'Room' is the name of the service (see IIFE function() above))
     Room_API.all = roomsDB;
@@ -31,7 +43,7 @@
     // replaced with HomeCtrl version
     Room_API.closeModal = function() {
       console.log('in service Room, close this form.');
-      home.closeModal(ref);
+      home.closeModal(roomsRef);
     };
 
     return Room_API;

@@ -13,10 +13,10 @@
     this.showRoomMessages = function() {
       this.chosenRoom = $scope.selectedRoom;
 
-      console.log('room clicked =', $scope.selectedRoom);
+      console.log('room clicked =', this.chosenRoom);
 
       // call func in Room service to fetch messages
-      Room.listMessages($scope.selectedRoom);
+      Room.listMessages(this.chosenRoom);
     };
 
     this.openForm = function() {
@@ -25,7 +25,10 @@
       // Confusion - Notes.  Where is return value from open()?
       // According to docs I need to reference something returned by open() to use the properties such as 'close', yet when I tried the first version below (creating variable 'modalRef' to hold a return handle), close failed.
       //
-      // NOT NEED new var modalRef to retain return value of open. Want to save handle t this opened window so can use its methods. Bootstrap provides $uibModalInstance (though not clearly mentioned in docs how to use it) for this purpose.
+      // NOT NEED -- var modalRef to retain return value of open(). Want to save
+      // handle to this opened window so can use its methods. Bootstrap provides
+      //  $uibModalInstance (though not clearly mentioned in docs how to use it)
+      //  for this purpose.
       // ------------------------------------------------
       // modalRef = $uibModal.open ({
       //   templateUrl: '/templates/frmAddRoom.html',
