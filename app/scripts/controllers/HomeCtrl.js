@@ -1,6 +1,6 @@
 (function() {
-  function HomeCtrl(Room, $uibModal, $scope) {
-  // GENERATES ERROR. function HomeCtrl(Room, Message, $uibModal, $scope) {
+  //function HomeCtrl(Room, $uibModal, $scope) {
+  function HomeCtrl(Room, Message, $uibModal, $scope) {
 
     console.log('in controller HomeCtrl() as "home"');
     console.log('Firebase Room obj:', Room.all);
@@ -37,8 +37,8 @@
   angular
     .module('blocChat')
     // inject dependency of Room service so this controller can make its properties and methods visible via $scope to views
-    .controller('HomeCtrl', ['Room', '$uibModal','$scope', HomeCtrl]);
+    //.controller('HomeCtrl', ['Room', '$uibModal','$scope', HomeCtrl]);
 
     // THIS VERSION generates error when add Message
-    //  .controller('HomeCtrl', ['Room', 'Message', '$uibModal','$scope', HomeCtrl]);
+    .controller('HomeCtrl', ['Room', 'Message', '$uibModal','$scope', HomeCtrl]);
 })();
