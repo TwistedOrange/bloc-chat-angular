@@ -12,7 +12,7 @@
 
     // Expose variable to controllers who use this service
     // (Ex: Room.all since 'Room' is the name of the service
-    // (see IIFE function() above))
+    // (see IIFE function() above)
     Room_API.all = roomsDB;
 
     // Creates a new record in the database and adds the record to our local synchronized array.
@@ -22,19 +22,6 @@
 
       // Firebase database named 'rooms', use $add to create new entry
       roomsDB.$add( roomObj );
-    };
-
-    // getRoomID - for given room name, query Firebase for unique ID
-    Room_API.getRoomID = function(roomName) {
-
-      console.log('The ID of room ', roomName, ' is: ', roomName.$id)
-      // TBD. need to get roomName from $scope, not sure how yet
-      return "-KsRssb0fvkMSYQa1jbK";
-    };
-
-    // for given room name, display its messages
-    Room_API.listMessages = function(chosenRoom) {
-      console.log('inside Room.listMessages, room = ', chosenRoom);
     };
 
     // replaced with HomeCtrl version

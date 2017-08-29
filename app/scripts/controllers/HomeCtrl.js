@@ -7,16 +7,18 @@
     // Now visible in view due to $scope ('this.').
     this.listOfRooms = Room.all;
 
-    //this.chosenRoom = '"test"';      // holds name of room user clicked
+    // show this section when chosenRoom has a name (on-click)
+    this.chosenRoom = 'TBD - updated when click room';
+
+    this.allMessages = {};
 
     // one of the rooms was clicked, name in $scope
     this.showRoomMessages = function(roomObj) {
       this.chosenRoom = roomObj.name;
+      
+      this.allMessages = Message.fetchMessage(roomObj.$id);
 
-      console.log('room clicked =', this.chosenRoom);
-
-      // call func in Room service to fetch messages
-      Room.listMessages(roomObj);
+      console.log('home.showRoomMessages() for room', roomObj.name, ' - msgList: ', this.allMessages);
     };
 
     this.openForm = function() {
