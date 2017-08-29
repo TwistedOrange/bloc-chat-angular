@@ -5,10 +5,10 @@
     console.log('in service Room');
 
     // Firebase object 'rooms' holds room IDs and name
-    var roomsRef = firebase.database().ref().child('rooms');
+    var refRooms = firebase.database().ref().child('rooms');
     // Use Firebase's child() method to  query an existing set of data or reference one you intend to populate with data.
 
-    var roomsDB = $firebaseArray(roomsRef);
+    var roomsDB = $firebaseArray(refRooms);
 
     // Expose variable to controllers who use this service
     // (Ex: Room.all since 'Room' is the name of the service
@@ -27,7 +27,7 @@
     // replaced with HomeCtrl version
     Room_API.closeModal = function() {
       //console.log('in service Room, close this form.');
-      home.closeModal(roomsRef);
+      home.closeModal(refRooms);
     };
 
     return Room_API;

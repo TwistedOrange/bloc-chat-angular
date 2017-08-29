@@ -15,8 +15,8 @@
     // one of the rooms was clicked, name in $scope
     this.showRoomMessages = function(roomObj) {
       this.chosenRoom = roomObj.name;
-      
-      this.allMessages = Message.fetchMessage(roomObj.$id);
+
+      this.allMessages = Message.fetchMessage(roomObj);
 
       console.log('home.showRoomMessages() for room', roomObj.name, ' - msgList: ', this.allMessages);
     };
