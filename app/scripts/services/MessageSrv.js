@@ -5,12 +5,12 @@
     var roomMsg = {};
     var ref = firebase.database().ref().child("messages");
 
-    this.fetchMessage = function(roomID) {
+    this.fetchMessage = function(roomObj) {
       // TBD - fetch room ID somewhere from service Room
-      var roomID = "-KsRssb0fvkMSYQa1jbK"
+      var roomID = roomObj.$id;         // "-KsRssb0fvkMSYQa1jbK"
       var oneMsg = ref.orderByChild(roomID);
 
-      console.log('fetchMessage() for room', roomID, ': msg=', oneMsg);
+      console.log('fetchMessage() for room', roomObj.name, ': msg=', oneMsg);
 
       roomMsg.username = oneMsg.username;
       roomMsg.content = oneMsg.content;

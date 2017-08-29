@@ -1,5 +1,4 @@
 (function() {
-  //function HomeCtrl(Room, $uibModal, $scope) {
   function HomeCtrl(Room, Message, $uibModal, $scope) {
 
     console.log('in controller HomeCtrl() as "home"');
@@ -8,16 +7,16 @@
     // Now visible in view due to $scope ('this.').
     this.listOfRooms = Room.all;
 
-    this.chosenRoom = '"test"';      // holds name of room user clicked
+    //this.chosenRoom = '"test"';      // holds name of room user clicked
 
     // one of the rooms was clicked, name in $scope
-    this.showRoomMessages = function() {
-      this.chosenRoom = $scope.selectedRoom;
+    this.showRoomMessages = function(roomObj) {
+      this.chosenRoom = roomObj.name;
 
       console.log('room clicked =', this.chosenRoom);
 
       // call func in Room service to fetch messages
-      Room.listMessages(this.chosenRoom);
+      Room.listMessages(roomObj);
     };
 
     this.openForm = function() {
@@ -36,9 +35,5 @@
 
   angular
     .module('blocChat')
-    // inject dependency of Room service so this controller can make its properties and methods visible via $scope to views
-    //.controller('HomeCtrl', ['Room', '$uibModal','$scope', HomeCtrl]);
-
-    // THIS VERSION generates error when add Message
     .controller('HomeCtrl', ['Room', 'Message', '$uibModal','$scope', HomeCtrl]);
 })();

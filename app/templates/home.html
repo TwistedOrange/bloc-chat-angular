@@ -22,7 +22,7 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
       <!-- ng-cloak= set display='none', prevent flicker -->
       <div class='roomList' ng-cloak>
         <div ng-repeat="oneRoom in home.listOfRooms">
-          <div ng-click='home.showRoomMessages()'
+          <div ng-click='home.showRoomMessages(oneRoom)'
           ng-model='selectedRoom'
           ng-mouseover=''>
             {{ oneRoom.name }}</div>

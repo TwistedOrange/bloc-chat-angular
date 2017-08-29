@@ -27,6 +27,7 @@
     // getRoomID - for given room name, query Firebase for unique ID
     Room_API.getRoomID = function(roomName) {
 
+      console.log('The ID of room ', roomName, ' is: ', roomName.$id)
       // TBD. need to get roomName from $scope, not sure how yet
       return "-KsRssb0fvkMSYQa1jbK";
     };
