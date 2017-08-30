@@ -11,9 +11,23 @@
       // Reference: How to query nested data in Firebase
       // https://stackoverflow.com/questions/26910242/querying-nested-data-in-firebase
 
-      var msgList = refMessage.orderByChild(roomObj.$id).equalTo('content');
+      //var msgList = refMessage.orderByChild(roomObj.$id).equalTo('content');
 
-      console.log('fetchMessage() for ID', roomObj.$id, ': msg=', msgList);
+      var msgList = $firebaseArray(refMessage);
+
+      console.log('fetchMessage() for ID', roomObj.$id, ': msg =', msgList);
+
+      /**
+       * @function getRoomByID
+       * @desc For given room object, return messages for a given room ID
+       * @param  {[object]} roomID [description]
+       * @return {[object]} msgList - object (with many $ and $$ methods), plus elements ordered by ID holding rooms with messages.
+       */
+      Message_API.getRoomByID = function(roomObj) {
+        var roomMsgs = $firebaseArray(refMessage.orderByChild('roomID').equalTo(roomObj.$id));
+
+        return roomMsgs;
+      };
 
       return msgList;
     };

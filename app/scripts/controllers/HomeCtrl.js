@@ -10,17 +10,30 @@
     // show this section when chosenRoom has a name (on-click)
     this.chosenRoom = 'TBD - updated when click room';
 
-    this.allMessages = {};
+    this.roomMessages;
 
+    /**
+     * @function showRoomMessages
+     * @desc For given room object, return the messages for that room's ID
+     * @param  {[type]} roomObj [description]
+     * @return {[type]}         [description]
+     */
     // one of the rooms was clicked, name in $scope
     this.showRoomMessages = function(roomObj) {
       this.chosenRoom = roomObj.name;
 
-      this.allMessages = Message.fetchMessage(roomObj);
+      console.log('roomObj.name,', roomObj.name);
 
-      console.log('home.showRoomMessages() for room', roomObj.name, ' - msgList: ', this.allMessages);
+      this.roomMessages = Message.fetchMessage(roomObj);
+
+      console.log('home.showRoomMessages() for room', roomObj.name, ' - msgList: ', this.roomMessages);
     };
 
+    /**
+     * @function openForm()
+     * @desc Open the form defined in templateUrl in its own window
+     * (modal = force to be on top)
+     */
     this.openForm = function() {
       // https://angular-ui.github.io/bootstrap/versioned-docs/2.5.0/#!#modal
 
