@@ -29,19 +29,12 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
         </div>
       </div>
 
-      <!-- TBD. show this part after room clicked -->
-      <div class='msglist' ng-hide='displayMsg'>
-        <ul>Messages for Room: {{ home.chosenRoom }}
-          <li>msg-1</li>
-          <li>msg-2</li>
-          <li>msg-3</li>
-        </ul>
+      <!-- TBD. show this part after room clicked ng-hide -->
+      <div class='msgList'>
+        <div class=''> Messages for Room: {{ home.chosenRoom }}
+          <div class='' ng-repeat='oneMessage in home.roomMessages'
+        </div>
       </div>
     </div>
-    <!-- <div class="col-4">
-      <br />
-      <button type="button" ng-click='home.openForm()'>Add New Room</button>
-      <p>{{ room.$value }}</p>
-    </div> -->
   </div>
 </div>

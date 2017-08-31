@@ -1,8 +1,8 @@
 (function() {
   function HomeCtrl(Room, Message, $uibModal, $scope) {
 
-    console.log('in controller HomeCtrl() as "home"');
-    console.log('Firebase Room obj:', Room.all);
+    // console.log('in controller HomeCtrl() as "home"');
+    // console.log('Firebase Room obj:', Room.all);
 
     // Now visible in view due to $scope ('this.').
     this.listOfRooms = Room.all;
@@ -22,11 +22,21 @@
     this.showRoomMessages = function(roomObj) {
       this.chosenRoom = roomObj.name;
 
-      console.log('roomObj.name,', roomObj.name);
+      //console.log('roomObj.name,', roomObj.name);
 
-      this.roomMessages = Message.fetchMessage(roomObj);
+      $scope.displayMsg = false;
 
-      console.log('home.showRoomMessages() for room', roomObj.name, ' - msgList: ', this.roomMessages);
+      this.roomMessages = Message.getRoomByID(roomObj.$id);
+      console.log('Msg for selected room ', roomObj.name, ' = ', this.roomMessages);
+
+      var aryMsgs = [];
+
+      //console.log('one ary elem', this.roomMessages{'0'});
+
+      // aryMsgs.push(this.roomMessages[0].content);
+      // aryMsgs.push(this.roomMessages[1].content);
+      //
+      // return aryMsgs;
     };
 
     /**
