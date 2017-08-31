@@ -10,7 +10,7 @@
     // show this section when chosenRoom has a name (on-click)
     this.chosenRoom = 'TBD - updated when click room';
 
-    this.roomMessages;
+    this.roomMessages;  // = Message.getRoomByID(this.chosenRoom.$id);
 
     /**
      * @function showRoomMessages
@@ -24,19 +24,9 @@
 
       //console.log('roomObj.name,', roomObj.name);
 
-      $scope.displayMsg = false;
-
       this.roomMessages = Message.getRoomByID(roomObj.$id);
       console.log('Msg for selected room ', roomObj.name, ' = ', this.roomMessages);
 
-      var aryMsgs = [];
-
-      //console.log('one ary elem', this.roomMessages{'0'});
-
-      // aryMsgs.push(this.roomMessages[0].content);
-      // aryMsgs.push(this.roomMessages[1].content);
-      //
-      // return aryMsgs;
     };
 
     /**
