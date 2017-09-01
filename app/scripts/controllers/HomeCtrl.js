@@ -9,7 +9,7 @@
 
     // show this section when chosenRoom has a name (on-click)
     this.chosenRoom = 'TBD - updated when click room';
-
+    this.noMessages = true;
     this.roomMessages;  // = Message.getRoomByID(this.chosenRoom.$id);
 
     /**
@@ -22,11 +22,13 @@
     this.showRoomMessages = function(roomObj) {
       this.chosenRoom = roomObj.name;
 
-      //console.log('roomObj.name,', roomObj.name);
-
       this.roomMessages = Message.getRoomByID(roomObj.$id);
       console.log('Msg for selected room ', roomObj.name, ' = ', this.roomMessages);
 
+      // use to display 'no messages' if clicked room doesn't have any
+      if ( this.roomMessages.length !== 0 ) {
+        this.noMessages = false;
+      }
     };
 
     /**

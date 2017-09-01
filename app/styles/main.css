@@ -20,10 +20,9 @@ header {
   background-color: lightblue;
 }
 
-li {
-  /* turn off bullets */
+.oneMessage {
+  font-weight: bold;
 }
-
 .btnRoom {
   border-style: dashed;
 }

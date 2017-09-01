@@ -32,7 +32,8 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
       <!-- TBD. show this part after room clicked ng-hide -->
       <div class='msgList'>
         <div class=''> Messages for Room: {{ home.chosenRoom }}
-          <div class='' ng-repeat='oneMessage in home.roomMessages'>
+          <div class='' ng-hide='home.noMessages'>You have no messages</div>
+          <div class='oneMessage' ng-repeat='oneMessage in home.roomMessages'>
             <p>From: {{ oneMessage.username }}, sent: {{ oneMessage.sentAt }}</p>
             <p>Message: {{ oneMessage.content }}</p>
         </div>
