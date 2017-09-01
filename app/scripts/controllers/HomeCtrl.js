@@ -8,7 +8,7 @@
     this.listOfRooms = Room.all;
 
     // show this section when chosenRoom has a name (on-click)
-    this.chosenRoom = 'TBD - updated when click room';
+    this.chosenRoom = '(select a room to view any messages)';
     this.noMessages = true;
     this.roomMessages;  // = Message.getRoomByID(this.chosenRoom.$id);
 

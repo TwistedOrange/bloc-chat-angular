@@ -4,10 +4,11 @@ header {
 }
 
 .roomList {
-  background-color: lightyellow;
+  background-color: #fdd9d2;
   display: inline;
-  padding: 15px;
-  float: left;
+  padding-right: 45px;
+  margin-left: 25px;
+  float: right;
 }
 
 .roomForm {
@@ -15,14 +16,16 @@ header {
   font: arial;
   font-size: 18px;
 }
-.msglist {
+.msgList {
   margin-left: 75px;
+  padding-left: 20px;
   background-color: lightblue;
 }
 
 .oneMessage {
   font-weight: bold;
 }
+
 .btnRoom {
   border-style: dashed;
 }
