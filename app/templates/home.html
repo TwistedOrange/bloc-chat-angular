@@ -23,13 +23,11 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
       <div class='roomList' ng-cloak>
         <div ng-repeat="oneRoom in home.listOfRooms">
           <div ng-click='home.showRoomMessages(oneRoom)'
-          ng-model='selectedRoom'
-          ng-mouseover=''>
+          ng-model='selectedRoom'>
             {{ oneRoom.name }}</div>
         </div>
       </div>
 
-      <!-- TBD. show this part after room clicked ng-hide -->
       <div class='msgList'>
         <div class=''> Messages for Room: {{ home.chosenRoom }}
           <div class='' ng-hide='home.noMessages'>You have no messages</div>

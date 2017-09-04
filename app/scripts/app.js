@@ -16,6 +16,6 @@
 
   angular
     // adding ui.router and firebase as dependencies
-    .module('blocChat', ['ui.router', 'firebase', 'ui.bootstrap'])
+    .module('blocChat', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies'])
     .config(config);
 })();

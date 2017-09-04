@@ -2,8 +2,6 @@
   function Room($firebaseArray) {
     var Room_API = {};
 
-    console.log('in service Room');
-
     // Firebase object 'rooms' holds room IDs and name
     var refRooms = firebase.database().ref().child('rooms');
     // Use Firebase's child() method to  query an existing set of data or reference one you intend to populate with data.

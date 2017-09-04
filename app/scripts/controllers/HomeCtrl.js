@@ -9,7 +9,6 @@
 
     // show this section when chosenRoom has a name (on-click)
     this.chosenRoom = '(select a room to view any messages)';
-    this.noMessages = true;
     this.roomMessages;  // = Message.getRoomByID(this.chosenRoom.$id);
 
     /**
@@ -24,11 +23,6 @@
 
       this.roomMessages = Message.getRoomByID(roomObj.$id);
       console.log('Msg for selected room ', roomObj.name, ' = ', this.roomMessages);
-
-      // use to display 'no messages' if clicked room doesn't have any
-      if ( this.roomMessages.length !== 0 ) {
-        this.noMessages = false;
-      }
     };
 
     /**
@@ -46,7 +40,6 @@
         templateUrl: '/templates/frmAddRoom.html',
         controller: 'ModalCtrl as modal'
       });
-
     };
   }
 
