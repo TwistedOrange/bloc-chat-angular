@@ -19,8 +19,9 @@
      * @function setUsername()
      * @desc Stores username into cookie from form
      */
-    this.setUserName = function() {
-      console.log('write name ', currentUser, ' to cookie blocChatCurrentUser');
+    // "this" is same as $scope, and $scope doesn't need to be injected since we use controller-as syntax
+     this.setUserName = function() {
+      console.log('write name ', this.username, ' to cookie blocChatCurrentUser');
 
       if ( this.username ) {
 

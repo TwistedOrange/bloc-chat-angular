@@ -4,9 +4,6 @@
 
 <p>This name will appear when you send messages</p>
 <form name='frmUserName'>
-  <input type='text' class='' ng-model='modalUser.username' placeholder="Enter your name">
-  <!-- <input type='submit'> -->
+  <input type='text' class='' ng-model='BlocChatCookies.username' placeholder="<name here>">
+  <button type='button' ng-click='BlocChatCookies.setUserName()'>Set Username</button>
 </form>
-<div class="">
-  <button type="button" class='' ng-click='modalUser.setUserName()'>Set Username</button>
-</div>
