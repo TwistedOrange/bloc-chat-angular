@@ -15,25 +15,6 @@
       });
     }
 
-    /**
-     * @function setUsername()
-     * @desc Stores username into cookie from form
-     */
-    // "this" is same as $scope, and $scope doesn't need to be injected since we use controller-as syntax
-     this.setUserName = function() {
-      console.log('write name ', this.username, ' to cookie blocChatCurrentUser');
-
-      if ( this.username ) {
-
-        $cookies.put('blocChatCurrentUser', this.username);
-
-        // Close the form asking for username.
-        //
-        // $uibModalInstance comes into existance with $uibModal.open(), it references the modal window and gives access to its methods.
-        $uibModalInstance.close(this.username);
-      }
-    };
-
     //return Cookies_API;
   }
 
