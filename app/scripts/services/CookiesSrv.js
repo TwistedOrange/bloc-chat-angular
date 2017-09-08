@@ -1,7 +1,5 @@
 (function() {
   function BlocChatCookies($cookies, $uibModal) {
-    //var Cookies_API = {};
-    //var username;      // name user submitted on form
 
     var currentUser = $cookies.get('blocChatCurrentUser');
     console.log('blocChatCurrentUser cookie =', currentUser);
@@ -14,8 +12,6 @@
         controller: 'ModalCtrl as modalUser'
       });
     }
-
-    //return Cookies_API;
   }
 
   // Angular modules have a .run() method that runs code when the app instance is created. Use a .run() block to make sure that a username is set at the time the app is initialized.

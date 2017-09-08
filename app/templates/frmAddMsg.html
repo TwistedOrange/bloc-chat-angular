@@ -1,0 +1,21 @@
+<div class="">
+    <h3 class="">Send a Message</h3>
+</div>
+
+<form ng-submit='home.send()'>
+  <div class="">
+    <label class="">What is your message?</label><br />
+    <input type='text' ng-model="home.newMessage" placeholder="?">
+    <button type="submit">Send Message</button>
+    <button type="button" ng-click="modalMsg.closeWindow()">Close</button>
+  </div>
+</form>
+
+<!-- <form ng-submit='home.createMessage()'>
+  <div class="">
+    <label class="">What is your message?</label><br />
+    <input type='text' ng-model="home.newMessage" placeholder="?">
+    <button type="submit" ng-click="home.createMessage()">Send Message</button>
+    <button type="button" ng-click="modalMsg.closeWindow()">Close</button>
+  </div>
+</form> -->

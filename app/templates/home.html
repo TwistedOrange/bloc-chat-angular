@@ -4,9 +4,11 @@
   <button type="button" ng-click='home.openForm()'>Add New Room</button>
   <p>{{ room.$value }}</p>
 </div>
-<!--
-<div class="collection-album-container column fourth" ng-repeat="album in collection.albums track by $index">
--->
+<div class="col-4">
+  <br />
+  <button type="button" ng-click='home.openMessage()'>Add New Message</button>
+  <p>{{ room.$value }}</p>
+</div>
 
 <!-- Display each room in the database by referencing
 the controller-as name 'home' which has the service called Room as a dependency. This service exposes properties and methods as needed by views.
@@ -20,7 +22,7 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
   <div class="row justify-content-start">
     <div class="col-4">
       <!-- ng-cloak= set display='none', prevent flicker -->
-      <div class='roomList' ng-cloak>
+      <div class='roomList'>
         <div ng-repeat="oneRoom in home.listOfRooms">
           <div ng-click='home.showRoomMessages(oneRoom)'
           ng-model='selectedRoom'>
@@ -30,7 +32,6 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
 
       <div class='msgList'>
         <div class=''> Messages for Room: {{ home.chosenRoom }}
-          <div class='' ng-hide='home.noMessages'>You have no messages</div>
           <div class='oneMessage' ng-repeat='oneMessage in home.roomMessages'>
             <p>From: {{ oneMessage.username }}, sent: {{ oneMessage.sentAt }}</p>
             <p>Message: {{ oneMessage.content }}</p>

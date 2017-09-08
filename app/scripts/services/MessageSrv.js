@@ -17,6 +17,10 @@
       return roomMsgs;
     };
 
+    Message_API.send = function(newMessage) {
+        console.log('send msg to Firebase'. newMessage);
+    };
+
     return Message_API;
   }
 

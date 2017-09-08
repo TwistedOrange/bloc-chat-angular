@@ -1,28 +1,26 @@
 (function() {
-  function HomeCtrl(Room, Message, $uibModal, $scope) {
-
-    // console.log('in controller HomeCtrl() as "home"');
-    // console.log('Firebase Room obj:', Room.all);
+  function HomeCtrl(Room, Message, $uibModal) {
 
     // Now visible in view due to $scope ('this.').
     this.listOfRooms = Room.all;
 
     // show this section when chosenRoom has a name (on-click)
-    this.chosenRoom = '(select a room to view any messages)';
-    this.roomMessages;  // = Message.getRoomByID(this.chosenRoom.$id);
+    this.chosenRoom;
+    this.roomMessages;
+
+    this.newMessage = {};
 
     /**
      * @function showRoomMessages
      * @desc For given room object, return the messages for that room's ID
      * @param  {[type]} roomObj [description]
-     * @return {[type]}         [description]
      */
     // one of the rooms was clicked, name in $scope
     this.showRoomMessages = function(roomObj) {
       this.chosenRoom = roomObj.name;
 
       this.roomMessages = Message.getRoomByID(roomObj.$id);
-      console.log('Msg for selected room ', roomObj.name, ' = ', this.roomMessages);
+      console.log('Msg for room []', roomObj.name, '] = ', this.roomMessages);
     };
 
     /**
@@ -41,9 +39,36 @@
         controller: 'ModalCtrl as modal'
       });
     };
+
+    this.openMessage = function() {
+      // only open if a room was first selected
+
+console.log('in openMessage, what room picked?', this.chosenRoom);
+
+      if ( this.chosenRoom ) {
+        $uibModal.open ({
+          templateUrl: '/templates/frmAddMsg.html',
+          controller: 'ModalCtrl as modalMsg'
+        });
+      } else {
+        console.log('first choose a room.');
+      }
+    };
+
+    this.send = function() {
+      console.log('send the message:', this.newMessage);
+
+      // Message.addMessage( {
+      //   roomID: this.currentRoom.$id,
+      //   content: this.newMessage,
+      //   sentAt: '0:00',
+      //   username: currentUser
+      // });
+      // this.newMessage = '';
+    };
   }
 
   angular
     .module('blocChat')
-    .controller('HomeCtrl', ['Room', 'Message', '$uibModal','$scope', HomeCtrl]);
+    .controller('HomeCtrl', ['Room', 'Message', '$uibModal', HomeCtrl]);
 })();

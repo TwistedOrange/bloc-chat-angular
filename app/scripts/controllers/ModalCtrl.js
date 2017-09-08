@@ -1,8 +1,10 @@
 (function() {
   function ModalCtrl(Room, $uibModalInstance, $cookies) {
-// function ModalCtrl(Room, $uibModalInstance, $uibModal) {
     // referenced as modal.roomObj in form by directive ng-model
     this.roomObj = '';
+
+    // hold user's message
+    //this.messageObj = {content: 'doggieMsg', username: 'snow'};
 
     // https://angular-ui.github.io/bootstrap/versioned-docs/2.5.0/#!#modal
 
@@ -19,12 +21,12 @@
       Room.addRoom(newRoom);
 
       // $uibModalInstance came into existance when $uibModal.open() was called.
-      // It's used to reference the modal window and to use the window's methods.
+      // It's used to reference the modal window and to call the window's methods.
       $uibModalInstance.close();
     };
 
-    this.cancel = function() {
-      console.log('Modal - cancel form');
+    this.closeWindow = function() {
+      //console.log('modal.closeWindow - close form');
       $uibModalInstance.close();
     };
 
@@ -32,17 +34,14 @@
      * @function setUsername()
      * @desc Stores username into cookie from form
      */
-    // "this" is same as $scope, and $scope doesn't need to be injected since we use controller-as
+    // "this" is same as $scope, and $scope doesn't need to be injected since we use controller-as syntax
     this.setUserName = function() {
      console.log('write name ', this.username, ' to cookie blocChatCurrentUser');
+     //console.log($cookies);
 
-     console.log($cookies);
      if ( this.username ) {
-
        $cookies.put('blocChatCurrentUser', this.username);
 
-       // Close the form asking for username.
-       //
        // $uibModalInstance comes into existance with $uibModal.open(), it references the modal window and gives access to its methods.
        $uibModalInstance.close();     //(this.username);
      }
