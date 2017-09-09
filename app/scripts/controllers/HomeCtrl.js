@@ -8,7 +8,7 @@
     this.chosenRoom;
     this.roomMessages;
 
-    this.newMessage = {};
+    this.newMessage = '';
 
     /**
      * @function showRoomMessages
@@ -40,31 +40,16 @@
       });
     };
 
-    this.openMessage = function() {
-      // only open if a room was first selected
-
-console.log('in openMessage, what room picked?', this.chosenRoom);
-
-      if ( this.chosenRoom ) {
-        $uibModal.open ({
-          templateUrl: '/templates/frmAddMsg.html',
-          controller: 'ModalCtrl as modalMsg'
-        });
-      } else {
-        console.log('first choose a room.');
-      }
-    };
-
     this.send = function() {
       console.log('send the message:', this.newMessage);
 
-      // Message.addMessage( {
-      //   roomID: this.currentRoom.$id,
-      //   content: this.newMessage,
-      //   sentAt: '0:00',
-      //   username: currentUser
-      // });
-      // this.newMessage = '';
+      Message.addMessage( {
+        roomID: this.chosenRoom,
+        content: this.newMessage,
+        sentAt: '0:00',
+        username: 'snow'
+      });
+      this.newMessage = '';
     };
   }
 

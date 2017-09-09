@@ -4,11 +4,11 @@
   <button type="button" ng-click='home.openForm()'>Add New Room</button>
   <p>{{ room.$value }}</p>
 </div>
-<div class="col-4">
+<!-- <div class="col-4">
   <br />
   <button type="button" ng-click='home.openMessage()'>Add New Message</button>
   <p>{{ room.$value }}</p>
-</div>
+</div> -->
 
 <!-- Display each room in the database by referencing
 the controller-as name 'home' which has the service called Room as a dependency. This service exposes properties and methods as needed by views.
@@ -39,4 +39,12 @@ Ex: variable 'oneRoom' is any name I choose that holds one instance of the list 
       </div>
     </div>
   </div>
+</div>
+
+<div class="" ng-show='home.chosenRoom'>
+  <form>
+    <p>Send a message to room: {{ home.chosenRoom }}</p>
+    <input type="text" ng-model='home.newMessage'>
+    <button type='button' ng-click='home.send()'>Send</button>
+  </form>
 </div>

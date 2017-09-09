@@ -43,7 +43,7 @@
        $cookies.put('blocChatCurrentUser', this.username);
 
        // $uibModalInstance comes into existance with $uibModal.open(), it references the modal window and gives access to its methods.
-       $uibModalInstance.close();     //(this.username);
+       $uibModalInstance.close();
      }
    };
   }
